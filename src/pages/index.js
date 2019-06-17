@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql } from "gatsby"
+// import { graphql } from "gatsby"
 
 import SEO from "../components/seo"
 
@@ -9,7 +9,7 @@ export default props => {
   return (
     <div>
       <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-      {data.remarks.links.map(({ node: { data } }) => {
+      {/* {data.remarks.links.map(({ node: { data } }) => {
         return (
           <div>
             <img src={data.imageUrl} alt={data.destinationUrl} />
@@ -18,7 +18,7 @@ export default props => {
             </a>
           </div>
         )
-      })}
+      })} */}
     </div>
   )
 }
