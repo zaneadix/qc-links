@@ -13,7 +13,7 @@ export default props => {
         return (
           <div>
             <a href={data.destinationUrl} target="_blank_">
-              <img src={data.imageUrl} alt={data.title} />
+              <img src={data.image} alt={data.title} />
             </a>
           </div>
         )
@@ -31,7 +31,7 @@ export const query = graphql`
         node {
           data: frontmatter {
             title
-            imageUrl
+            image
             destinationUrl
           }
         }
