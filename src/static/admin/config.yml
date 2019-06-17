@@ -1,0 +1,13 @@
+backend:
+  name: git-gateway
+  branch: master
+
+collections:
+  - label: Links
+    name: links
+    folder: src/cms/collections/links
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: Image URL, name: "imageUrl", widget: "string" }
+      - { label: Destination URL, name: "destinationUrl", widget: "string" }
