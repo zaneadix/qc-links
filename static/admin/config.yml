@@ -10,7 +10,7 @@ collections:
     slug: "{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Image URL", name: "imageUrl", widget: "string" }
+      - { label: "Image", name: "image", widget: "image" }
       - { label: "Destination URL", name: "destinationUrl", widget: "string" }
       - { label: "Publish Time", name: "publishTime", widget: datetime }
 
