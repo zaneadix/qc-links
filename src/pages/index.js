@@ -1,23 +1,18 @@
 import React from "react"
-// import { graphql } from "gatsby"
+import { graphql } from "gatsby"
 
 import SEO from "../components/seo"
+import Container from "../components/container"
 
 export default props => {
-  let { data } = props
+  // let { data } = props
 
   return (
     <div>
       <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-      {data.remarks.links.map(({ node: { data } }) => {
-        return (
-          <div>
-            <a href={data.destinationUrl} target="_blank_">
-              <img src={data.image} alt={data.title} />
-            </a>
-          </div>
-        )
-      })}
+      <Container>
+        <h1>Quarter Castle</h1>
+      </Container>
     </div>
   )
 }
@@ -33,6 +28,7 @@ export const query = graphql`
             title
             image
             destinationUrl
+            publishTime
           }
         }
       }

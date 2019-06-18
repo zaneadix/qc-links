@@ -7,8 +7,6 @@ module.exports = {
   plugins: [
     `gatsby-plugin-svg-sprite`,
     `gatsby-plugin-react-helmet`,
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     `gatsby-plugin-emotion`,
     `gatsby-transformer-remark`,
     {
@@ -23,13 +21,18 @@ module.exports = {
         pathToConfigModule: `src/utils/typography-config.js`,
       },
     },
+
+    // IMAGES
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
+        path: `${__dirname}/static/images/uploads`,
+        name: "image-uploads",
       },
     },
+
     {
       resolve: `gatsby-source-filesystem`,
       options: {
