@@ -1,7 +1,7 @@
 import Typography from "typography"
 
 let stack = [
-  "Poppins",
+  "Montserrat",
   "Avenir Next",
   "Helvetica Neue",
   "Segoe UI",
@@ -18,7 +18,7 @@ const typography = new Typography({
   bodyFontFamily: stack,
   googleFonts: [
     {
-      name: "Poppins",
+      name: "Montserrat",
       styles: ["300", "400", "700"],
     },
   ],

@@ -1,4 +1,5 @@
 import React from "react"
+import { Global, css } from "@emotion/core"
 import { graphql } from "gatsby"
 
 import QCIcon from "../../static/images/icons/qc-icon_round.svg"
@@ -10,7 +11,6 @@ import styled from "@emotion/styled"
 let Header = styled.section`
   padding-top: 2rem;
   padding-bottom: 2rem;
-  margin-bottom: 2rem;
   border-bottom: 2px solid #cee0d1;
   display: flex;
   justify-content: start;
@@ -35,6 +35,9 @@ let Header = styled.section`
 
 let LinksBody = styled.section`
   display: flex;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 2px solid #cee0d1;
 `
 
 let Link = styled.div`
@@ -46,6 +49,12 @@ let Link = styled.div`
   &:nth-of-type(3) {
     margin-right: 0;
   }
+
+  .destination {
+    padding: 1rem;
+    font-weight: 700;
+    text-align: center;
+  }
 `
 
 export default props => {
@@ -54,6 +63,13 @@ export default props => {
   return (
     <div>
       <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+      <Global
+        styles={css`
+          body {
+            color: #28625f;
+          }
+        `}
+      ></Global>
       <Container>
         <Header>
           <svg class="logo">
@@ -73,6 +89,9 @@ export default props => {
                 <a href={data.destinationUrl} target="_blank_">
                   <Image src={data.image} alt={data.title} />
                 </a>
+                <div class="destination">
+                  <span>{data.destinationUrl}</span>
+                </div>
               </Link>
             ) : null
           })}
