@@ -11,7 +11,7 @@ let stack = [
 ]
 
 const typography = new Typography({
-  baseFontSize: "16px",
+  baseFontSize: "14px",
   baseLineHeight: 1.45,
   scaleRatio: 2,
   headerFontFamily: stack,
@@ -19,7 +19,7 @@ const typography = new Typography({
   googleFonts: [
     {
       name: "Montserrat",
-      styles: ["300", "400", "700"],
+      styles: ["300", "600", "700"],
     },
   ],
 })
