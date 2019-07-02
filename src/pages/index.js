@@ -1,8 +1,23 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { Link, graphql } from "gatsby"
+import styled from "@emotion/styled"
 
+import QCIcon from "../../static/images/icons/qc-icon_round.svg"
 import SEO from "../components/seo"
-import Container from "../components/container"
+
+let LogoBoi = styled.div`
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .logo {
+    width: 60%;
+    height: 60vh;
+    margin-bottom: 1rem;
+  }
+`
 
 export default props => {
   // let { data } = props
@@ -10,9 +25,14 @@ export default props => {
   return (
     <div>
       <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-      <Container>
-        <h1>Quarter Castle</h1>
-      </Container>
+      <LogoBoi>
+        <svg class="logo">
+          <use xlinkHref={`#${QCIcon.id}`} />
+        </svg>
+        <Link to="/links/">
+          <h2>Links</h2>
+        </Link>
+      </LogoBoi>
     </div>
   )
 }

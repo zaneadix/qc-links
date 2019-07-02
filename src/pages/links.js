@@ -1,27 +1,13 @@
 import React from "react"
-import { Global, css } from "@emotion/core"
 import { graphql } from "gatsby"
+import styled from "@emotion/styled"
 
+import { mediaQueries } from "../utils/style-vars"
+import InstaIcon from "../../static/images/icons/insta_logo-icon.svg"
 import QCIcon from "../../static/images/icons/qc-icon_round.svg"
-import { mediaQueries, colors } from "../utils/style-vars"
 import SEO from "../components/seo"
 import Container from "../components/container"
 import Image from "../components/image"
-import styled from "@emotion/styled"
-
-let globalStyles = css`
-  body {
-    color: ${colors.green};
-  }
-  a {
-    color: ${colors.darkGreen};
-    text-decoration: none;
-
-    &:visted {
-      color: ${colors.darkGreen};
-    }
-  }
-`
 
 let Header = styled.section`
   padding-top: 3.428571429rem;
@@ -50,19 +36,39 @@ let Header = styled.section`
   }
 `
 
+let SectionHeader = styled.h4`
+  display: flex;
+  align-items: center;
+
+  svg {
+    height: 1.5rem;
+    width: 1.5rem;
+    margin-right: 0.5rem;
+  }
+`
+
 let LinksBody = styled.section`
   display: flex;
   flex-wrap: wrap;
   padding-bottom: 3rem;
+  margin-bottom: 1.857142857rem;
   border-bottom: 2px solid #cee0d1;
 `
 
-let Link = styled.div`
-  flex-grow: 1;
+let sharedLinkStyles = `
   box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.2);
 
+  .destination {
+    padding: 1rem 0.6rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+`
+
+let Link = styled.div`
+  ${sharedLinkStyles}
+
   width: 48.5185185%;
-  max-width: 48.5185185%;
   margin-right: 2.962963%;
   margin-bottom: 1.142857143rem;
   &:nth-child(2n) {
@@ -71,7 +77,6 @@ let Link = styled.div`
 
   ${mediaQueries[1]} {
     width: 31.851851852%;
-    max-width: 31.851851852%;
     margin-right: 2.222222222%;
     &:nth-child(2n) {
       margin-right: 2.222222222%;
@@ -83,7 +88,6 @@ let Link = styled.div`
 
   ${mediaQueries[3]} {
     width: 15.6156156%;
-    max-width: 15.6156156%;
     margin-right: 1.2048193%;
     &:nth-child(2n),
     &:nth-child(3n) {
@@ -93,10 +97,32 @@ let Link = styled.div`
       margin-right: 0;
     }
   }
+`
 
-  .destination {
-    padding: 1rem;
-    font-weight: 600;
+let Social = styled.div`
+  ${sharedLinkStyles}
+
+  width: 100%;
+  margin-bottom: 1.142857143rem;
+
+  ${mediaQueries[1]} {
+    width: 48.8888889%;
+    margin-right: 2.222222222%;
+    &:nth-child(2n) {
+      margin-right: 0%;
+    }
+  }
+
+  ${mediaQueries[3]} {
+    width: 32.530120467%;
+    max-width: 32.530120467%;
+    margin-right: 1.2048193%;
+    &:nth-child(2n) {
+      margin-right: 1.2048193%;
+    }
+    &:nth-child(3n) {
+      margin-right: 0;
+    }
   }
 `
 
@@ -106,10 +132,9 @@ export default props => {
   return (
     <div>
       <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-      <Global styles={globalStyles}></Global>
       <Container>
         <Header>
-          <svg class="logo">
+          <svg className="logo">
             <use xlinkHref={`#${QCIcon.id}`} />
           </svg>
           <div class="info">
@@ -120,7 +145,12 @@ export default props => {
           </div>
         </Header>
 
-        <h4>INSTAGRAM</h4>
+        <SectionHeader>
+          <svg>
+            <use xlinkHref={`#${InstaIcon.id}`} />
+          </svg>
+          INSTAGRAM
+        </SectionHeader>
 
         <LinksBody>
           {data.remarks.links.map(({ node: { data } }) => {
@@ -135,6 +165,37 @@ export default props => {
               </Link>
             ) : null
           })}
+        </LinksBody>
+
+        <SectionHeader>
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="50" cy="50" r="50" fill="#C4C4C4" />
+          </svg>
+          ELSEWHERE
+        </SectionHeader>
+
+        <LinksBody>
+          <Social>
+            <a href="https://twitter.com/quartercastle" target="_blank_">
+              <div class="destination">
+                <span>Twitter - Quarter Castle Thoughts</span>
+              </div>
+            </a>
+          </Social>
+          <Social>
+            <a href="http://quartercastle.co/youtube" target="_blank_">
+              <div class="destination">
+                <span>Youtube - Quarter Castle Videos</span>
+              </div>
+            </a>
+          </Social>
+          <Social>
+            <a href="http://quartercastle.co/youtube" target="_blank_">
+              <div class="destination">
+                <span>Youtube - Quarter Castle Videos</span>
+              </div>
+            </a>
+          </Social>
         </LinksBody>
       </Container>
     </div>

@@ -10,6 +10,9 @@ module.exports = {
     `gatsby-plugin-emotion`,
     `gatsby-transformer-remark`,
     {
+      resolve: `gatsby-plugin-layout`,
+    },
+    {
       resolve: `gatsby-plugin-netlify-cms`,
       options: {
         modulePath: `${__dirname}/src/cms/index.js`,
