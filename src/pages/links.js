@@ -35,6 +35,7 @@ let Header = styled.section`
       margin-bottom: 0;
     }
     .subtitle {
+      font-family: "Playfair Display";
       margin-bottom: 0;
     }
   }

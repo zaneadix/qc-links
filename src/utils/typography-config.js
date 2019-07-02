@@ -18,6 +18,10 @@ const typography = new Typography({
   bodyFontFamily: stack,
   googleFonts: [
     {
+      name: "Playfair Display",
+      styles: ["400"],
+    },
+    {
       name: "Montserrat",
       styles: ["300", "600", "700"],
     },
