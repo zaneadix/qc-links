@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `Quarter Castle Links`,
-    description: `Links for Quarter Castle Insta`,
-    author: `Zane Adickes`,
+    title: `Quarter Castle`,
+    description: `The official website of Quarter Castle. Plant-forward eating. Eat-forward traveling.`,
+    author: `Kiera Rooker & Zane Adickes`,
   },
   plugins: [
     `gatsby-plugin-svg-sprite`,

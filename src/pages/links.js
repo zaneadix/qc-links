@@ -85,17 +85,17 @@ let Link = styled.div`
   width: 48.5185185%;
   margin-right: 2.962963%;
   margin-bottom: 1.142857143rem;
-  &:nth-child(2n) {
+  &:nth-of-type(2n) {
     margin-right: 0;
   }
 
   ${mediaQueries[1]} {
     width: 31.851851852%;
     margin-right: 2.222222222%;
-    &:nth-child(2n) {
+    &:nth-of-type(2n) {
       margin-right: 2.222222222%;
     }
-    &:nth-child(3n) {
+    &:nth-of-type(3n) {
       margin-right: 0;
     }
   }
@@ -108,11 +108,11 @@ let Link = styled.div`
     font-size: 0.85rem;
     width: 15.6156156%;
     margin-right: 1.2048193%;
-    &:nth-child(2n),
-    &:nth-child(3n) {
+    &:nth-of-type(2n),
+    &:nth-of-type(3n) {
       margin-right: 1.2048193%;
     }
-    &:nth-child(6n) {
+    &:nth-of-type(6n) {
       margin-right: 0;
     }
   }
@@ -135,7 +135,7 @@ let Social = styled.div`
   ${mediaQueries[1]} {
     width: 48.8888889%;
     margin-right: 2.222222222%;
-    &:nth-child(2n) {
+    &:nth-of-type(2n) {
       margin-right: 0%;
     }
   }
@@ -144,10 +144,10 @@ let Social = styled.div`
     width: 32.530120467%;
     max-width: 32.530120467%;
     margin-right: 1.2048193%;
-    &:nth-child(2n) {
+    &:nth-of-type(2n) {
       margin-right: 1.2048193%;
     }
-    &:nth-child(3n) {
+    &:nth-of-type(3n) {
       margin-right: 0;
     }
   }
@@ -169,15 +169,15 @@ export default class Links extends Component {
     let { data } = this.props
     return (
       <div>
-        <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+        <SEO title="Links" keywords={["links"]} />
         <Container>
           <Header>
             <svg className="logo">
               <use xlinkHref={`#${QCIcon.id}`} />
             </svg>
-            <div class="info">
-              <h2 class="title">Quarter Castle Kiera</h2>
-              <a class="subtitle" href="http://quartercastle.co">
+            <div className="info">
+              <h2 className="title">Quarter Castle Kiera</h2>
+              <a className="subtitle" href="http://quartercastle.co">
                 www.quartercastle.co
               </a>
             </div>
@@ -196,7 +196,7 @@ export default class Links extends Component {
                 <Link key={data.publishTime}>
                   <a href={data.destinationUrl} target="_blank_">
                     <Image src={data.image} alt={data.title} />
-                    <div class="destination">
+                    <div className="destination">
                       <svg className="logo">
                         <use xlinkHref={`#${this.getIcon(data.type).id}`} />
                       </svg>
@@ -218,7 +218,7 @@ export default class Links extends Component {
           <LinksBody>
             <Social>
               <a href="https://twitter.com/quartercastle" target="_blank_">
-                <div class="destination">
+                <div className="destination">
                   <svg className="logo">
                     <use xlinkHref={`#${TwitterElsewhereIcon.id}`} />
                   </svg>
@@ -228,7 +228,7 @@ export default class Links extends Component {
             </Social>
             <Social>
               <a href="http://quartercastle.co/youtube" target="_blank_">
-                <div class="destination">
+                <div className="destination">
                   <svg className="logo">
                     <use xlinkHref={`#${YoutubeElsewhereIcon.id}`} />
                   </svg>

@@ -19,12 +19,10 @@ let LogoBoi = styled.div`
   }
 `
 
-export default props => {
-  // let { data } = props
-
+export default () => {
   return (
     <div>
-      <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+      <SEO />
       <LogoBoi>
         <svg class="logo">
           <use xlinkHref={`#${QCIcon.id}`} />

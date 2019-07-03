@@ -1,14 +1,18 @@
-/**
- * SEO component that queries for data with
- *  Gatsby's useStaticQuery React hook
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
 import React from "react"
 import PropTypes from "prop-types"
 import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
+
+const KEYWORDS = [
+  "quarter",
+  "castle",
+  "food",
+  "eating",
+  "baking",
+  "vegan",
+  "vegetarian",
+  "travel",
+]
 
 function SEO({ description, lang, meta, keywords, title }) {
   const { site } = useStaticQuery(
@@ -25,7 +29,13 @@ function SEO({ description, lang, meta, keywords, title }) {
     `
   )
 
-  const metaDescription = description || site.siteMetadata.description
+  title = title || site.siteMetadata.title
+  description = description || site.siteMetadata.description
+  keywords = KEYWORDS.concat(keywords)
+  let keywordsMeta = {
+    name: "keywords",
+    content: keywords.join(", "),
+  }
 
   return (
     <Helmet
@@ -33,11 +43,12 @@ function SEO({ description, lang, meta, keywords, title }) {
         lang,
       }}
       title={title}
+      defautTitle={site.siteMetadata.title}
       titleTemplate={`%s | ${site.siteMetadata.title}`}
       meta={[
         {
           name: `description`,
-          content: metaDescription,
+          content: description,
         },
         {
           property: `og:title`,
@@ -45,7 +56,7 @@ function SEO({ description, lang, meta, keywords, title }) {
         },
         {
           property: `og:description`,
-          content: metaDescription,
+          content: description,
         },
         {
           property: `og:type`,
@@ -65,18 +76,10 @@ function SEO({ description, lang, meta, keywords, title }) {
         },
         {
           name: `twitter:description`,
-          content: metaDescription,
+          content: description,
         },
-      ]
-        .concat(
-          keywords.length > 0
-            ? {
-                name: `keywords`,
-                content: keywords.join(`, `),
-              }
-            : []
-        )
-        .concat(meta)}
+        keywordsMeta,
+      ].concat(meta)}
     />
   )
 }

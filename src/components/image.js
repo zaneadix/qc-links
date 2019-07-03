@@ -25,15 +25,12 @@ export default props => (
       }
     `}
     render={data => {
-      console.log(props, data)
       let image = data.images.edges.find(image => {
         return props.src
           ? image.node.relativePath === props.src.split("/").pop()
           : null
       })
       image && (image = image.node.childImageSharp)
-
-      //const imageSizes = image.node.childImageSharp.sizes; sizes={imageSizes}
       return image ? <Image alt={props.alt} fluid={image.fluid} /> : null
     }}
   />
