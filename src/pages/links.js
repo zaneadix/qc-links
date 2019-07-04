@@ -83,7 +83,11 @@ let sharedLinkStyles = `
 let Link = styled.div`
   ${sharedLinkStyles}
 
-  font-size: .9rem;
+  .destination {
+    padding: 1rem 0.5rem;
+    font-size: 0.7rem;
+  }
+
   width: 48.5185185%;
   margin-right: 2.962963%;
   margin-bottom: 1.142857143rem;
@@ -99,6 +103,10 @@ let Link = styled.div`
     }
     &:nth-of-type(3n) {
       margin-right: 0;
+    }
+    .destination {
+      padding: 1rem 0.8rem;
+      font-size: 0.9rem;
     }
   }
 
