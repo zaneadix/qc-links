@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import { graphql } from "gatsby"
 import styled from "@emotion/styled"
+import { OutboundLink } from "gatsby-plugin-google-analytics"
 
 import { mediaQueries } from "../utils/style-vars"
 import InstaIcon from "../../static/images/icons/insta_logo-icon.svg"
@@ -209,7 +210,7 @@ export default class Links extends Component {
             {data.remarks.links.map(({ node: { data } }) => {
               return data.image ? (
                 <Link key={data.publishTime}>
-                  <a href={data.destinationUrl} target="_blank_">
+                  <OutboundLink href={data.destinationUrl} target="_blank_">
                     <Image src={data.image} alt={data.title} />
                     <div className="destination">
                       <svg className="logo">
@@ -217,7 +218,7 @@ export default class Links extends Component {
                       </svg>
                       <span>{data.title}</span>
                     </div>
-                  </a>
+                  </OutboundLink>
                 </Link>
               ) : null
             })}
@@ -227,24 +228,30 @@ export default class Links extends Component {
 
           <LinksBody>
             <Social>
-              <a href="https://twitter.com/quartercastle" target="_blank_">
+              <OutboundLink
+                href="https://twitter.com/quartercastle"
+                target="_blank_"
+              >
                 <div className="destination">
                   <svg className="logo">
                     <use xlinkHref={`#${TwitterElsewhereIcon.id}`} />
                   </svg>
                   <span>Twitter - Quarter Castle Thoughts</span>
                 </div>
-              </a>
+              </OutboundLink>
             </Social>
             <Social>
-              <a href="http://quartercastle.co/youtube" target="_blank_">
+              <OutboundLink
+                href="http://quartercastle.co/youtube"
+                target="_blank_"
+              >
                 <div className="destination">
                   <svg className="logo">
                     <use xlinkHref={`#${YoutubeElsewhereIcon.id}`} />
                   </svg>
                   <span>Youtube - Quarter Castle Videos</span>
                 </div>
-              </a>
+              </OutboundLink>
             </Social>
           </LinksBody>
         </Container>
