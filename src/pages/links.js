@@ -73,6 +73,7 @@ let sharedLinkStyles = `
     svg {
       height: 1.3rem;
       width: 1.3rem;
+      min-width: 1.3rem;
       margin-right: .5rem;
     }
   }
@@ -114,6 +115,20 @@ let Link = styled.div`
     }
     &:nth-of-type(6n) {
       margin-right: 0;
+    }
+
+    .destination {
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+      font-size: 0.75rem;
+    }
+  }
+
+  ${mediaQueries[4]} {
+    .destination {
+      padding-left: 0.8rem;
+      padding-right: 0.8rem;
+      font-size: 0.85rem;
     }
   }
 `
@@ -208,12 +223,7 @@ export default class Links extends Component {
             })}
           </LinksBody>
 
-          <SectionHeader>
-            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="50" cy="50" r="50" fill="#C4C4C4" />
-            </svg>
-            ELSEWHERE
-          </SectionHeader>
+          <SectionHeader>ELSEWHERE</SectionHeader>
 
           <LinksBody>
             <Social>
