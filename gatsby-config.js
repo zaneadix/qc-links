@@ -43,5 +43,16 @@ module.exports = {
         name: `collections`,
       },
     },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "UA-142776093-2",
+        head: false,
+        anonymize: true,
+        respectDNT: true,
+        siteSpeedSampleRate: 10,
+        cookieName: "qcDeets",
+      },
+    },
   ],
 }
