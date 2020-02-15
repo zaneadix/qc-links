@@ -1,21 +1,15 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 import styled from "@emotion/styled"
+import { css } from "@emotion/core"
 
-import QCIcon from "../../static/images/icons/qc-icon_round.svg"
 import SEO from "../components/seo"
+import Container from "../components/container"
+import Hero from "../components/hero"
 
-let LogoBoi = styled.div`
-  display: flex;
-  height: 100vh;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  .logo {
-    width: 60%;
-    height: 60vh;
-    margin-bottom: 1rem;
+let recentRecipesStyles = css`
+  .title {
+    text-align: center;
   }
 `
 
@@ -23,33 +17,34 @@ export default () => {
   return (
     <div>
       <SEO />
-      <LogoBoi>
-        <svg class="logo">
-          <use xlinkHref={`#${QCIcon.id}`} />
-        </svg>
-        <Link to="/links/">
-          <h2>Links</h2>
-        </Link>
-      </LogoBoi>
+      <Container>
+        <Hero
+          preamble="plant-forward food"
+          title="For people<br> who love to eat"
+        ></Hero>
+      </Container>
+      <Container css={recentRecipesStyles}>
+        <h3 className="title">Recent recipes</h3>
+      </Container>
     </div>
   )
 }
 
-export const query = graphql`
-  query {
-    remarks: allMarkdownRemark(
-      sort: { order: DESC, fields: [frontmatter___publishTime] }
-    ) {
-      links: edges {
-        node {
-          data: frontmatter {
-            title
-            image
-            destinationUrl
-            publishTime
-          }
-        }
-      }
-    }
-  }
-`
+// export const query = graphql`
+//   query {
+//     remarks: allMarkdownRemark(
+//       sort: { order: DESC, fields: [frontmatter___publishTime] }
+//     ) {
+//       links: edges {
+//         node {
+//           data: frontmatter {
+//             title
+//             image
+//             destinationUrl
+//             publishTime
+//           }
+//         }
+//       }
+//     }
+//   }
+// `
