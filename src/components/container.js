@@ -1,8 +1,9 @@
 import React from "react"
 import styled from "@emotion/styled"
+import { css } from "@emotion/core"
 import { mediaQueries } from "../utils/style-vars"
 
-let Container = styled.div`
+let containerStyles = css`
   margin: 0 auto;
 
   padding-left: 1.5rem;
@@ -19,18 +20,22 @@ let Container = styled.div`
   }
 
   ${mediaQueries[2]} {
-    max-width: 960px;
+    max-width: 936px;
   }
 
   ${mediaQueries[3]} {
-    max-width: 1140px;
+    max-width: 936px;
   }
 
   ${mediaQueries[4]} {
-    max-width: 1328px;
+    max-width: 936px;
   }
 `
 
-export default ({ children }) => {
-  return <Container>{children}</Container>
+export default props => {
+  return (
+    <div css={containerStyles} {...props}>
+      {props.children}
+    </div>
+  )
 }

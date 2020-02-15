@@ -1,29 +1,17 @@
-import React, { Component } from "react"
-import { Global, css } from "@emotion/core"
+import React from "react"
+import { Global } from "@emotion/core"
 
-import { colors } from "../utils/style-vars"
+import Header from "../components/Header"
+import globalStyles from "./globalStyles"
 
-let globalStyles = css`
-  body {
-    color: ${colors.green};
-  }
-  a {
-    color: ${colors.darkGreen};
-    text-decoration: none;
-
-    &:visted {
-      color: ${colors.darkGreen};
-    }
-  }
-`
-
-export default class AppLayout extends Component {
-  render() {
-    return (
-      <div>
-        <Global styles={globalStyles} />
-        <main>{this.props.children}</main>
-      </div>
-    )
-  }
+let AppLayout = ({ children }) => {
+  return (
+    <div>
+      <Global styles={globalStyles} />
+      <Header></Header>
+      <main>{children}</main>
+    </div>
+  )
 }
+
+export default AppLayout
