@@ -216,6 +216,7 @@ export default class Links extends Component {
 
           <LinksBody>
             {data.remarks.links.map(({ node: { data } }) => {
+              console.log("IMAGE", data.image)
               return data.image ? (
                 <Link key={data.publishTime}>
                   <OutboundLink href={data.destinationUrl} target="_blank_">

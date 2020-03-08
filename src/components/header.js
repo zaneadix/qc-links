@@ -4,16 +4,12 @@ import { css } from "@emotion/core"
 
 import { colors } from "../utils/style-vars"
 import Brand from "../../static/images/icons/qc_brand.svg"
-import Container from "./container"
 
 let headerStyles = css`
   background-color: white;
   height: 4.5rem;
 
   .header-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
     height: 100%;
 
     .brand {
@@ -55,8 +51,8 @@ let headerStyles = css`
 let Header = () => {
   return (
     <div className="header" css={headerStyles}>
-      <Container className="header-container">
-        <div className="brand">
+      <div className="header-container container flex row align-center">
+        <div className="brand flex justify-center">
           <svg>
             <use xlinkHref={`#${Brand.id}`} />
           </svg>
@@ -69,11 +65,16 @@ let Header = () => {
           <Link className="nav-item" to="/about/" activeClassName="active">
             ABOUT
           </Link>
-          <Link className="nav-item" to="/recipes/" activeClassName="active">
+          <Link
+            className="nav-item"
+            to="/recipes/"
+            partiallyActive={true}
+            activeClassName="active"
+          >
             RECIPES
           </Link>
         </div>
-      </Container>
+      </div>
     </div>
   )
 }

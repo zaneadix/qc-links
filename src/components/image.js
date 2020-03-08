@@ -15,7 +15,7 @@ export default props => (
               sourceInstanceName
               dir
               childImageSharp {
-                fluid(maxWidth: 300) {
+                fluid(maxWidth: 936) {
                   ...GatsbyImageSharpFluid
                 }
               }

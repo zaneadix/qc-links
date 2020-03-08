@@ -4,15 +4,12 @@ import { css } from "@emotion/core"
 import { mediaQueries } from "../utils/style-vars"
 
 let containerStyles = css`
-  margin: 0 auto;
+  margin: 1rem auto;
 
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+  padding: 0;
 
   ${mediaQueries[0]} {
     max-width: 540px;
-    padding-left: 1rem;
-    padding-right: 1rem;
   }
 
   ${mediaQueries[1]} {
