@@ -1,6 +1,8 @@
 import Typography from "typography"
 
-let stack = [
+let baseStack = ["Playfair Display", "Georgia", "serif"]
+
+let headerStack = [
   "Montserrat",
   "Avenir Next",
   "Helvetica Neue",
@@ -12,10 +14,12 @@ let stack = [
 
 const typography = new Typography({
   baseFontSize: "16px",
-  baseLineHeight: 1.45,
-  scaleRatio: 2,
-  headerFontFamily: stack,
-  bodyFontFamily: stack,
+  baseLineHeight: 1.5,
+  scaleRatio: 1.9,
+  bodyFontFamily: baseStack,
+  headerFontFamily: headerStack,
+  headerWeight: 300,
+  includeNormalize: true,
   googleFonts: [
     {
       name: "Playfair Display",
@@ -23,7 +27,7 @@ const typography = new Typography({
     },
     {
       name: "Montserrat",
-      styles: ["300", "400", "500", "600", "700"],
+      styles: ["300", "500"],
     },
   ],
 })
