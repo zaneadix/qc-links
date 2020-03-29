@@ -1,6 +1,6 @@
-export const mediaQueries = [576, 768, 992, 1200, 1440].map(
-  bp => `@media (min-width: ${bp}px)`
-)
+export const breakpoints = [576, 756, 972]
+
+export const mediaQueries = breakpoints.map(bp => `@media (min-width: ${bp}px)`)
 
 export const colors = {
   linen: "#F5F5F0",

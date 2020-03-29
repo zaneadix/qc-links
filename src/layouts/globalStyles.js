@@ -1,13 +1,21 @@
 import { css } from "@emotion/core"
 
-import { colors, mediaQueries } from "../utils/style-vars"
+import { colors, mediaQueries } from "../utils/styleVars"
 
 let globalStyles = css`
   body,
   html {
     color: ${colors.midnightSnack};
-    font-size: 16px;
     background-color: ${colors.linen};
+    font-size: 13px;
+
+    ${mediaQueries[0]} {
+      font-size: 14px;
+    }
+
+    ${mediaQueries[1]} {
+      font-size: 16px;
+    }
   }
 
   h1,
@@ -75,33 +83,37 @@ let globalStyles = css`
     }
   }
 
+  .text {
+    &-center {
+      text-align: center;
+    }
+  }
+
   .floor {
     margin-bottom: 0;
   }
 
   .container {
     margin: 0 auto;
-    padding: 0;
+    padding: 0 1rem;
     width: 100%;
 
-    ${mediaQueries[0]} {
-      max-width: 540px;
+    &:not(.fluid) {
+      &:not(.fluid-0) ${mediaQueries[0]} {
+        max-width: calc(540px + 2rem);
+      }
+
+      &:not(.fluid-1) ${mediaQueries[1]} {
+        max-width: calc(720px + 2rem);
+      }
+
+      ${mediaQueries[2]} {
+        max-width: calc(936px + 2rem);
+      }
     }
 
-    ${mediaQueries[1]} {
-      max-width: 720px;
-    }
-
-    ${mediaQueries[2]} {
-      max-width: 936px;
-    }
-
-    ${mediaQueries[3]} {
-      max-width: 936px;
-    }
-
-    ${mediaQueries[4]} {
-      max-width: 936px;
+    .over-pad {
+      margin: 0 -1rem;
     }
   }
 
@@ -124,9 +136,15 @@ let globalStyles = css`
       justify-content: flex-end;
     }
 
-    &.child-stack {
-      &-standard {
-        > *:not(:last-child) {
+    &.section-stack {
+      > *:not(:last-child) {
+        margin-bottom: 3rem;
+
+        ${mediaQueries[0]} {
+          margin-bottom: 3rem;
+        }
+
+        ${mediaQueries[1]} {
           margin-bottom: 3.5rem;
         }
       }

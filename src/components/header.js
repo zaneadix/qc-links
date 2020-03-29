@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import { css } from "@emotion/core"
 
-import { colors } from "../utils/style-vars"
+import { colors, mediaQueries } from "../utils/styleVars"
 import Brand from "../../static/images/icons/qc_brand.svg"
 
 let headerStyles = css`
@@ -14,8 +14,12 @@ let headerStyles = css`
 
     .brand {
       height: 2.5rem;
-      width: 8.5rem;
-      margin-right: 1.5rem;
+      width: 5rem;
+
+      ${mediaQueries[1]} {
+        width: 8.5rem;
+        margin-right: 1.5rem;
+      }
 
       svg {
         height: 2.5rem;
@@ -24,9 +28,13 @@ let headerStyles = css`
     }
 
     .navigation {
+      display: none;
       height: 100%;
-      display: flex;
       flex-direction: row;
+
+      ${mediaQueries[1]} {
+        display: flex;
+      }
 
       .nav-item {
         width: 8.5rem;
