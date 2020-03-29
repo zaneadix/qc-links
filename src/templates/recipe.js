@@ -4,12 +4,22 @@ import ReactMarkdown from "react-markdown"
 
 import Hero from "../components/hero"
 import Image from "../components/image"
-import { colors } from "../utils/style-vars"
+import { colors, mediaQueries } from "../utils/styleVars"
 import { formatIngredient } from "../utils/functions"
 
 let recipeStyles = css`
+  .hero {
+    margin-bottom: 0 !important;
+  }
+
   .times-and-yield {
     border: 1px solid ${colors.midnightSnack};
+    margin: 0 -1rem;
+
+    ${mediaQueries[2]} {
+      margin: 0 0;
+    }
+
     >* {
       box-sizing: border-box;
       width: 33.33333%;
@@ -78,13 +88,13 @@ export default ({ pageContext: { slug, frontmatter } }) => {
   let { ingredientSections, recipeSections } = frontmatter
   console.log(recipeSections)
   return (
-    <div className="flex column child-stack-standard" css={recipeStyles}>
+    <div className="flex column section-stack" css={recipeStyles}>
+      <Hero
+        title={heroTitle || title}
+        image={heroBackground}
+        youtubeID={youtubeID}
+      ></Hero>
       <div className="container">
-        <Hero
-          title={heroTitle || title}
-          image={heroBackground}
-          youtubeID={youtubeID}
-        ></Hero>
         <div className="times-and-yield flex row">
           <div className="prep-time">
             <h3 className="measurement serif">

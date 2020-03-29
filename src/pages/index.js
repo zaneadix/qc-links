@@ -3,34 +3,8 @@ import { Link, graphql } from "gatsby"
 import { css } from "@emotion/core"
 
 import Hero from "../components/hero"
-import Image from "../components/image"
+import RecipeList from "../components/recipeList"
 import SEO from "../components/seo"
-
-let recentRecipesStyles = css`
-  .title {
-    text-align: center;
-  }
-
-  .recipes {
-    display: flex;
-    flex-direction: row;
-
-    .recipe {
-      background-color: white;
-      position: relative;
-      min-width: 31.6239316%;
-      margin-right: 2.5641026%;
-      &:nth-of-type(3n) {
-        margin-right: 0;
-      }
-
-      .details {
-        text-align: center;
-        padding: 1.125rem;
-      }
-    }
-  }
-`
 
 let lifestyleStyles = css`
   background-color: white;
@@ -75,27 +49,15 @@ let blogPostStyles = css`
 
 export default ({ data }) => {
   return (
-    <div className="flex column child-stack-standard">
+    <div className="flex column section-stack">
       <SEO title="Quarter Castle" />
+      <Hero
+        preamble="plant-forward food"
+        title="For people<br> who love to eat"
+      ></Hero>
       <div className="container">
-        <Hero
-          preamble="plant-forward food"
-          title="For people<br> who love to eat"
-        ></Hero>
-      </div>
-      <div className="container" css={recentRecipesStyles}>
-        <h3 className="title sans">Recent recipes</h3>
-        <div className="recipes">
-          {data.remarks.recipes.slice(0, 3).map(entry => {
-            let recipe = entry.node.frontmatter
-            return (
-              <div className="recipe" key={recipe.thumbnail}>
-                <Image src={recipe.thumbnail} alt={recipe.title} />
-                <div className="details">{recipe.title}</div>
-              </div>
-            )
-          })}
-        </div>
+        <h3 className="title sans text-center">Recent recipes</h3>
+        <RecipeList recipes={data.remarks.recipes.slice(0, 3)}></RecipeList>
       </div>
       <div css={lifestyleStyles}>
         <div className="container flex column justify-center">

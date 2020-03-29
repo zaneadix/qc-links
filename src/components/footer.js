@@ -3,8 +3,7 @@ import styled from "@emotion/styled"
 import { OutboundLink } from "gatsby-plugin-google-analytics"
 
 import Logo from "../../static/images/icons/qc_logo_light.svg"
-import { colors } from "../utils/style-vars"
-import Container from "./container"
+import { colors } from "../utils/styleVars"
 
 let Footer = styled.footer`
   background-color: ${colors.everglaze};
@@ -18,11 +17,6 @@ let Footer = styled.footer`
 
   .content-container {
     .content {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-
       height: 100%;
     }
 
@@ -52,8 +46,8 @@ let Footer = styled.footer`
 
 export default () => (
   <Footer>
-    <Container className="content-container">
-      <div className="content">
+    <div className="container">
+      <div className="content flex column align-center justify-center">
         <div className="links">
           <OutboundLink href="mailto: quartercastle@gmail.com">
             Contact
@@ -80,6 +74,6 @@ export default () => (
           </svg>
         </div>
       </div>
-    </Container>
+    </div>
   </Footer>
 )

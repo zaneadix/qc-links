@@ -11,8 +11,8 @@ import SEO from "../components/seo"
 let linksStyles = css`
   display: flex;
   flex-wrap: wrap;
-  a {
-    display: block;
+
+  .link {
     width: 31.6239316%;
     margin-right: 2.5641026%;
 
@@ -29,22 +29,22 @@ export default ({ data }) => {
 
   return (
     <div className="flex column child-stack-standard">
-      <SEO title="Quarter Castle" />
-      <div className="container">
-        <Hero collapse={true} preamble="links from" title="Instagram"></Hero>
-      </div>
+      <SEO title="Links - Quarter Castle" />
+      <Hero collapse={true} preamble="links from" title="Instagram"></Hero>
       <div className="container">
         <div className="links" css={linksStyles}>
           {links.map(({ node: { data } }) => {
             return data.image ? (
-              <OutboundLink
-                className="recipe"
-                href={data.destinationUrl}
-                key={data.thumbnail}
-                target="_blank_"
-              >
-                <Image src={data.image} alt={data.title} />
-              </OutboundLink>
+              <div className="link">
+                <OutboundLink
+                  className="recipe"
+                  href={data.destinationUrl}
+                  key={data.thumbnail}
+                  target="_blank_"
+                >
+                  <Image src={data.image} alt={data.title} />
+                </OutboundLink>
+              </div>
             ) : null
           })}
 
