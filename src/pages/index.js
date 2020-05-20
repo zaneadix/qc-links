@@ -6,6 +6,13 @@ import Hero from "../components/hero"
 import RecipeList from "../components/recipeList"
 import SEO from "../components/seo"
 
+let linkStyles = css`
+  font-size: 2rem;
+  font-weight: 100;
+  display: block;
+  margin: 0 auto;
+`
+
 let lifestyleStyles = css`
   background-color: white;
   padding: 2.5rem 0;
@@ -55,7 +62,12 @@ export default ({ data }) => {
         preamble="plant-forward food"
         title="For people<br> who love to eat"
       ></Hero>
-      <div className="container">
+      <div className="container flex">
+        <Link to="/links/" css={linkStyles}>
+          Instagram Links
+        </Link>
+      </div>
+      {/* <div className="container">
         <h3 className="title sans text-center">Recent recipes</h3>
         <RecipeList recipes={data.remarks.recipes.slice(0, 3)}></RecipeList>
       </div>
@@ -87,7 +99,7 @@ export default ({ data }) => {
             <a className="read-more">read more</a>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   )
 }

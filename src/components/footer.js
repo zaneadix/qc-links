@@ -32,13 +32,13 @@ let Footer = styled.footer`
       text-align: center;
       font-size: 0.75rem;
       font-family: "Playfair Display";
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
     }
 
     .logo {
       svg {
-        height: 2.5rem;
-        width: 5.1875rem;
+        height: 3rem;
+        width: 4rem;
       }
     }
   }
@@ -46,7 +46,7 @@ let Footer = styled.footer`
 
 export default () => (
   <Footer>
-    <div className="container">
+    <div className="container content-container">
       <div className="content flex column align-center justify-center">
         <div className="links">
           <OutboundLink href="mailto: quartercastle@gmail.com">

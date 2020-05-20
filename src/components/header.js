@@ -67,7 +67,7 @@ let Header = () => {
         </div>
 
         <div className="navigation">
-          <Link className="nav-item" to="/" activeClassName="active">
+          {/* <Link className="nav-item" to="/" activeClassName="active">
             HOME
           </Link>
           <Link className="nav-item" to="/about/" activeClassName="active">
@@ -80,7 +80,7 @@ let Header = () => {
             activeClassName="active"
           >
             RECIPES
-          </Link>
+          </Link> */}
         </div>
       </div>
     </div>
